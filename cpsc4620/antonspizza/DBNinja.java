@@ -21,7 +21,7 @@ This class also has static string variables for pickup, delivery and dine-in. If
 
 public final class DBNinja {
     //enter your user name here
-    private static String user = "Pmerry";
+    private static String user = "AntnPzDB_7bup";
     //enter your password here
     private static String password = "antonpizza2020";
     //enter your database name here
@@ -97,6 +97,19 @@ public final class DBNinja {
 		You do not need to check to see if you have the topping in stock before adding to a pizza. You can just let it go negative.
 		*/
 
+        try{
+
+        }
+        catch(Throwable e){
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+
+            //don't leave your connection open!
+            conn.close();
+            return;
+        }
 
         conn.close();
 
@@ -118,6 +131,20 @@ public final class DBNinja {
 		Note that the customer is an ICustomer data type, which means c could be a dine in, carryout or delivery customer
 		*/
 
+        try{
+
+        }
+        catch(Throwable e){
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+
+            //don't leave your connection open!
+            conn.close();
+            return;
+        }
+
         conn.close();
     }
 
@@ -133,7 +160,19 @@ public final class DBNinja {
     {
         connect_to_db();
 		/*add code to mark an order as complete in the DB. You may have a boolean field for this, or maybe a completed time timestamp. However you have it, */
+        try{
 
+        }
+        catch(SQLException e){
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+
+            //don't leave your connection open!
+            conn.close();
+            return;
+        }
         conn.close();
     }
 
@@ -149,18 +188,34 @@ public final class DBNinja {
     public static void AddToInventory(Topping t, double toAdd) throws SQLException, IOException
     {
         connect_to_db();
-		/*add code to add toAdd to the inventory level of T. This is not adding a new topping, it is adding a certain amount of stock for a topping. This would be used to show that an order was made to replenish the restaurants supply of pepperoni, etc*/
-        //#todo
+		/*add code to add toAdd to the inventory level of T. This is not adding a new topping, it is adding a certain amount of stock for a topping. 
+        This would be used to show that an order was made to replenish the restaurants supply of pepperoni, etc*/
+        try{
+
+        }
+        catch(SQLException e){
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+
+            //don't leave your connection open!
+            conn.close();
+            return;
+        }
         conn.close();
     }
 
 
     /*
-        A function to get the list of toppings and their inventory levels. I have left this code "complete" as an example of how to use JDBC to get data from the database. This query will not work on your database if you have different field or table names, so it will need to be changed
+        A function to get the list of toppings and their inventory levels. I have left this code "complete" as an example of how to use JDBC to get data from the database. 
+        This query will not work on your database if you have different field or table names, so it will need to be changed
 
         Also note, this is just getting the topping ids and then calling getTopping() to get the actual topping. You will need to complete this on your own
 
-        You don't actually have to use and write the getTopping() function, but it can save some repeated code if the program were to expand, and it keeps the functions simpler, more elegant and easy to read. Breaking up the queries this way also keeps them simpler. I think it's a better way to do it, and many people in the industry would agree, but its a suggestion, not a requirement.
+        You don't actually have to use and write the getTopping() function, but it can save some repeated code if the program were to expand, 
+        and it keeps the functions simpler, more elegant and easy to read. Breaking up the queries this way also keeps them simpler. I think it's a better way to do it, 
+        and many people in the industry would agree, but its a suggestion, not a requirement.
     */
 
     /**
@@ -186,7 +241,8 @@ public final class DBNinja {
             {
 					/*Use getInt, getDouble, getString to get the actual value. You can use the column number starting with 1, or use the column name as a string
 
-					NOTE: You want to use rset.getInt() instead of Integer.parseInt(rset.getString()), not just because it's shorter, but because of the possible NULL values. A NUll would cause parseInt to fail
+					NOTE: You want to use rset.getInt() instead of Integer.parseInt(rset.getString()), not just because it's shorter, but because of the possible NULL values. 
+                    A NUll would cause parseInt to fail
 
 					If there is a possibility that it could return a NULL value you need to check to see if it was NULL. In this query we won't get nulls, so I didn't. If I was going to I would do:
 
@@ -235,7 +291,20 @@ public final class DBNinja {
 
         ArrayList<Order> os = new ArrayList<Order>();
 		/*add code to get a list of all open orders. Only return Orders that have not been completed. If any pizzas are not completed, then the order is open.*/
-        //#TODO
+        try{
+
+        }
+        catch(SQLException e){
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+
+            //don't leave your connection open!
+            conn.close();
+            return os;
+        }
+
         conn.close();
         return os;
     }
@@ -255,7 +324,19 @@ public final class DBNinja {
         connect_to_db();
         double bp = 0.0;
         //add code to get the base price for that size and crust pizza Depending on how you store size and crust in your database, you may have to do a conversion
-        //#TODO
+        try{
+
+        }
+        catch(SQLException e){
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+
+            //don't leave your connection open!
+            conn.close();
+            return bp;
+        }
         conn.close();
         return bp;
     }
@@ -272,8 +353,19 @@ public final class DBNinja {
         ArrayList<Discount> discs = new ArrayList<Discount>();
         connect_to_db();
         //add code to get a list of all discounts
-        //#TODO
+        try{
 
+        }
+        catch(SQLException e){
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+
+            //don't leave your connection open!
+            conn.close();
+            return discs;
+        }
         conn.close();
         return discs;
     }
@@ -290,8 +382,19 @@ public final class DBNinja {
         ArrayList<ICustomer> custs = new ArrayList<ICustomer>();
         connect_to_db();
         //add code to get a list of all customers
-        //#TODO
+        try{
 
+        }
+        catch(SQLException e){
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+
+            //don't leave your connection open!
+            conn.close();
+            return custs;
+        }
         conn.close();
         return custs;
     }
